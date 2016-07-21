@@ -1,0 +1,15 @@
+a:\user\my document\visual studio 2015\Projects\Project 1\Project 1\bin\Debug\Project 1.dll
+a:\user\my document\visual studio 2015\Projects\Project 1\Project 1\bin\Debug\Project 1.pdb
+a:\user\my document\visual studio 2015\Projects\Project 1\Project 1\bin\Debug\Project_1.Project_1.apk
+a:\user\my document\visual studio 2015\Projects\Project 1\Project 1\bin\Debug\Project_1.Project_1-Signed.apk
+a:\user\my document\visual studio 2015\Projects\Project 1\Project 1\obj\Debug\Project 1.dll
+a:\user\my document\visual studio 2015\Projects\Project 1\Project 1\obj\Debug\Project 1.pdb
+a:\user\my document\visual studio 2015\Projects\Project 1\Project 1\obj\Debug\android\bin\Project_1.Project_1.apk
+a:\user\my document\visual studio 2015\Projects\Project 1\Project 1\obj\Debug\res\layout\main.xml
+a:\user\my document\visual studio 2015\Projects\Project 1\Project 1\obj\Debug\res\values\strings.xml
+a:\user\my document\visual studio 2015\Projects\Project 1\Project 1\obj\Debug\res\drawable\icon.png
+a:\user\my document\visual studio 2015\Projects\Project 1\Project 1\obj\Debug\R.cs.flag
+a:\user\my document\visual studio 2015\Projects\Project 1\Project 1\obj\Debug\uploadflags.txt
+A:\User\My Document\Visual Studio 2015\Projects\Project 1\Project 1\obj\Debug\res\drawable\map.jpg
+A:\User\My Document\Visual Studio 2015\Projects\Project 1\Project 1\obj\Debug\Project 1.dll.mdb
+A:\User\My Document\Visual Studio 2015\Projects\Project 1\Project 1\bin\Debug\Project 1.dll.mdb

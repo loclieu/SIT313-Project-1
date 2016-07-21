@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_dark">
+    <TextView
+        android:text="User's Class Timetable"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:gravity="center"
+        android:textSize="70px"
+        android:layout_marginBottom="25.0dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="148.5dp"
+        android:id="@+id/relativeLayout1"
+        android:layout_marginBottom="25.0dp">
+        <Button
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Class"
+            android:id="@+id/btnClass" />
+        <Button
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="User Details"
+            android:id="@+id/btnDetails"
+            android:layout_marginRight="26.5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="33.0dp" />
+        <TextView
+            android:text="Week: null"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/btnDetails"
+            android:id="@+id/textView11"
+            android:gravity="right"
+            android:paddingLeft="59dp"
+            android:layout_below="@id/textView11"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <TextView
+        android:text="Today's Class"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView10"
+        android:layout_marginBottom="15.0dp" />
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:stretchColumns="1"
+        android:layout_marginLeft="5.0dp"
+        android:layout_marginRight="5.0dp"
+        android:background="@android:color/background_light"
+        android:layout_marginBottom="5.0dp">
+        <TableRow>
+            <TextView
+                android:text="Unit Code"
+                android:background="@drawable/cell_shape"
+                android:padding="3dip" />
+            <TextView
+                android:text="Room Number"
+                android:gravity="center"
+                android:padding="3dip"
+                android:background="@drawable/cell_shape"
+                android:layout_marginLeft="0.0dp" />
+            <TextView
+                android:text="Time"
+                android:gravity="right"
+                android:background="@drawable/cell_shape"
+                android:padding="3dip" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>
