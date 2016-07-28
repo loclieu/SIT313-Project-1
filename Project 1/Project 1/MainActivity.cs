@@ -28,20 +28,41 @@ namespace Project_1
             //button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
 
             Button classes = FindViewById<Button>(Resource.Id.btnClass);
+            Button userDetail = FindViewById<Button>(Resource.Id.btnDetails);
+            TextView txtWeek = FindViewById<TextView>(Resource.Id.txtWeek);
 
             classes.Click += delegate
            {
                StartActivity(typeof(ClassListActivity));
            };
 
-            Button userDetail = FindViewById<Button>(Resource.Id.btnDetails);
+           
             userDetail.Click += delegate
             {
                 StartActivity(typeof(UserDetailsActivity));
             };
 
 
+            DateTime now = DateTime.Now.ToLocalTime();
+            int currentDay = 16;    // End of week 1 is day 15
+            int currentWeek = 1;
+        
+            if (now.Day > currentDay && now.Month <= 10) // if now is > than 16 then add 1 to current week, and 7 to currentDate to make a new week
+            {
+                currentDay+= 7; // new week checker
+                currentWeek ++;
+                txtWeek.Text = "Week: " + currentWeek.ToString();
+            }
+            else
+            {
+                txtWeek.Text = "Week: Exam Period";
+            }
+     
         }
+
+     
+            
+         
 
     }
 }

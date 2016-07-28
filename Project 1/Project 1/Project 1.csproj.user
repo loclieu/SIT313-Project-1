@@ -3,6 +3,6 @@
   <PropertyGroup>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
     <AndroidDesignerPreferredTheme>Theme.Black.NoTitleBar</AndroidDesignerPreferredTheme>
-    <SelectedDevice>5" KitKat %284.4%29 XXHDPI Phone</SelectedDevice>
+    <SelectedDevice>AVD_GalaxyNexus_ToolsForApacheCordova</SelectedDevice>
   </PropertyGroup>
 </Project>

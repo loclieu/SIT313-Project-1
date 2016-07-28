@@ -5,35 +5,37 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px"
-    android:weightSum="100">
+    android:weightSum="100"
+    android:background="@drawable/ViewCellBackground">
     <TextView
         android:text="Name"
         android:layout_width="match_parent"
         android:layout_weight="20"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:id="@+id/txtName" />
-  <TextView
-    android:text="Type"
-    android:layout_width="match_parent"
-    android:layout_weight="20"
-    android:layout_height="wrap_content"
-    android:id="@+id/txtType" />
+    <TextView
+        android:text="Type"
+        android:layout_width="match_parent"
+        android:layout_weight="20"
+        android:layout_height="20dp"
+        android:id="@+id/txtType"
+        android:layout_marginBottom="4.0dp" />
     <TextView
         android:text="Room"
         android:layout_width="match_parent"
         android:layout_weight="20"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:id="@+id/txtRoom" />
     <TextView
         android:text="Time"
         android:layout_width="match_parent"
         android:layout_weight="20"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:id="@+id/txtTime" />
     <TextView
         android:text="Day"
         android:layout_width="match_parent"
         android:layout_weight="20"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:id="@+id/txtDay" />
 </LinearLayout>
