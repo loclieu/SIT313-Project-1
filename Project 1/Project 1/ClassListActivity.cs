@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using System.IO;
 
 namespace Project_1
 {
@@ -28,17 +29,22 @@ namespace Project_1
             mListView = FindViewById<ListView>(Resource.Id.lvClassList);
 
             ORM.DBRepository dbr1 = new ORM.DBRepository();
-            var result1 = dbr1.CreateTable();
-            Toast.MakeText(this, result1, ToastLength.Short).Show();
-            mitems = new List<ClassList>();
+            // var result1 = dbr1.CreateTable();
+            // Toast.MakeText(this, result1, ToastLength.Short).Show();
+            //  dbr1.GetAllRecords();
+          
+           
+        
+            mitems = new List<ClassList>(dbr1.AllClassList());
+            /*
             mitems.Add(new ClassList() { UnitCode = "SIT313", Type ="Practical", Room = "T1.001", Time = "10:00", Day="Tuesday" });
             mitems.Add(new ClassList() { UnitCode = "SIT255", Type = "Lecture", Room = "B4.012", Time = "14:00", Day = "Wednesday" });
             mitems.Add(new ClassList() { UnitCode = "SIT313", Type = "Practical", Room = "T1.001", Time = "12:00", Day = "Friday" });
-
+             */
             adapter = new MyListViewAdapter(this, mitems);
             mListView.Adapter = adapter;
             mListView.ItemClick += OnListItemClick;
-
+           
             Button btnAddClass = FindViewById<Button>(Resource.Id.btnAddClass);
             btnAddClass.Click += delegate
             {
@@ -52,7 +58,7 @@ namespace Project_1
             btnEditClass.Click += delegate
             {
                   ORM.DBRepository dbr = new ORM.DBRepository();
-            var result = dbr.GetAllRecords();
+                   var result = dbr.GetAllRecords();
             Toast.MakeText(this, result, ToastLength.Short).Show();
             };
 
@@ -73,7 +79,7 @@ namespace Project_1
             // Input variable
             EditText unitcode = view.FindViewById<EditText>(Resource.Id.txtUnitCode);
             EditText room = view.FindViewById<EditText>(Resource.Id.txtRoom);
-            EditText time = view.FindViewById<EditText>(Resource.Id.txtTime);
+            EditText time = view.FindViewById<EditText>(Resource.Id.txtTimes);
             EditText day = view.FindViewById<EditText>(Resource.Id.txtDay);
             EditText type = view.FindViewById<EditText>(Resource.Id.txtType);
             
@@ -88,6 +94,9 @@ namespace Project_1
             {
                 mitems.Add(new ClassList() { UnitCode = unitcode.Text, Type = type.Text, Room = room.Text, Time = time.Text, Day = day.Text });
                 mListView.Adapter = adapter;
+                ORM.DBRepository dbr = new ORM.DBRepository();
+                string result = dbr.InsertRecord(unitcode.Text, type.Text, room.Text, time.Text, day.Text);
+                Toast.MakeText(this, result, ToastLength.Short).Show();
                 builder.Dismiss();
                 Toast.MakeText(this, "Successfully Added.", ToastLength.Short).Show();
             };
@@ -103,3 +112,4 @@ namespace Project_1
         }
     }
 }
+ 

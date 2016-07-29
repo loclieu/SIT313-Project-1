@@ -12,7 +12,8 @@ namespace Project_1
     public class MainActivity : Activity
     {
        
-
+      
+           
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -25,8 +26,12 @@ namespace Project_1
             // and attach an event to it
             // Button button = FindViewById<Button>(Resource.Id.MyButton);
 
-            //button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
-
+            //button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); }
+             
+            // Create Database if it doesnt exist
+            ORM.DBRepository dbr1 = new ORM.DBRepository();
+            var result1 = dbr1.CreateTable();
+            // Button Names
             Button classes = FindViewById<Button>(Resource.Id.btnClass);
             Button userDetail = FindViewById<Button>(Resource.Id.btnDetails);
             TextView txtWeek = FindViewById<TextView>(Resource.Id.txtWeek);

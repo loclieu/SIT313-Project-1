@@ -4,16 +4,16 @@
     android:layout_height="wrap_content"
     android:minWidth="25px"
     android:minHeight="25px"
-    android:background="#ff80d8ff">
+    android:background="#bfebff">
     <TextView
         android:id="@+id/titleAddClass"
         android:layout_height="32dp"
         android:layout_width="match_parent"
         android:text="Add Class"
         android:textSize="20dp"
-        android:textColor="#FFFFFF"
+        android:textColor="#ffffffff"
         android:paddingTop="4dp"
-        android:background="#ff40c4ff"
+        android:background="#80d8ff"
         android:gravity="center"
         android:layout_marginBottom="22.0dp" />
     <TextView
@@ -114,7 +114,7 @@
         android:paddingLeft="5dp"
         android:paddingTop="2dp" />
     <EditText
-        android:id="@+id/txtTime"
+        android:id="@+id/txtTimes"
         android:layout_below="@+id/lblTime"
         android:inputType="text"
         android:layout_height="28dp"
@@ -200,7 +200,7 @@
             android:textSize="14dp"
             android:text="Add"
             android:typeface="sans"
-            android:background="#ff0986be"
+            android:background="#5997b2"
             android:textColor="#ffffffff"
             android:textStyle="bold"
             android:gravity="center"
@@ -212,7 +212,7 @@
             android:textSize="14dp"
             android:text="Cancel"
             android:typeface="sans"
-            android:background="#ff0986be"
+            android:background="#5997b2"
             android:layout_marginLeft="5dp"
             android:textColor="#ffffffff"
             android:textStyle="bold"

@@ -22,7 +22,7 @@ namespace Project_1
             // Create your application here
             SetContentView(Resource.Layout.UserDetails);
 
-            this.Title = "Custom";
+            this.Title = "User Details";
             Button cancel = FindViewById<Button>(Resource.Id.btnCancel);
             cancel.Click +=  delegate
             {

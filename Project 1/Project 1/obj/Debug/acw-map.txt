@@ -1,0 +1,16 @@
+Project_1.ClassListActivity, Project 1;md566f7a6d1dda08353a6accce83f76d9b0.ClassListActivity
+Project_1.ClassListActivity, Project 1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md566f7a6d1dda08353a6accce83f76d9b0.ClassListActivity
+Project_1.ClassListActivity;md566f7a6d1dda08353a6accce83f76d9b0.ClassListActivity
+project_1.ClassListActivity;md566f7a6d1dda08353a6accce83f76d9b0.ClassListActivity
+Project_1.MainActivity, Project 1;md566f7a6d1dda08353a6accce83f76d9b0.MainActivity
+Project_1.MainActivity, Project 1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md566f7a6d1dda08353a6accce83f76d9b0.MainActivity
+Project_1.MainActivity;md566f7a6d1dda08353a6accce83f76d9b0.MainActivity
+project_1.MainActivity;md566f7a6d1dda08353a6accce83f76d9b0.MainActivity
+Project_1.MyListViewAdapter, Project 1;md566f7a6d1dda08353a6accce83f76d9b0.MyListViewAdapter
+Project_1.MyListViewAdapter, Project 1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md566f7a6d1dda08353a6accce83f76d9b0.MyListViewAdapter
+Project_1.MyListViewAdapter;md566f7a6d1dda08353a6accce83f76d9b0.MyListViewAdapter
+project_1.MyListViewAdapter;md566f7a6d1dda08353a6accce83f76d9b0.MyListViewAdapter
+Project_1.UserDetailsActivity, Project 1;md566f7a6d1dda08353a6accce83f76d9b0.UserDetailsActivity
+Project_1.UserDetailsActivity, Project 1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md566f7a6d1dda08353a6accce83f76d9b0.UserDetailsActivity
+Project_1.UserDetailsActivity;md566f7a6d1dda08353a6accce83f76d9b0.UserDetailsActivity
+project_1.UserDetailsActivity;md566f7a6d1dda08353a6accce83f76d9b0.UserDetailsActivity
