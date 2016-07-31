@@ -44,17 +44,8 @@ namespace Project_1
                 // Show dialog
                 AddNewClassDialog();
             };
+           
 
-            /*
-            Button btnEditClass = FindViewById<Button>(Resource.Id.btnEditClass);
-            btnEditClass.Click += delegate
-            {
-                  ORM.DBRepository dbr = new ORM.DBRepository();
-                   var result = dbr.GetAllRecords();
-            Toast.MakeText(this, result, ToastLength.Short).Show();
-            };
-            */
-            
         }
 
         void AddNewClassDialog()
@@ -69,10 +60,14 @@ namespace Project_1
             EditText unitcode = view.FindViewById<EditText>(Resource.Id.txtUnitCode);
             EditText room = view.FindViewById<EditText>(Resource.Id.txtRoom);
             EditText time = view.FindViewById<EditText>(Resource.Id.txtTimes);
-            EditText day = view.FindViewById<EditText>(Resource.Id.txtDay);
             EditText type = view.FindViewById<EditText>(Resource.Id.txtType);
-            // Last Item in list
-         
+            Spinner spinner = view.FindViewById<Spinner>(Resource.Id.spinnerDay);
+           
+            // Apply the string array to Spinner
+            var Spinneradapter = ArrayAdapter.CreateFromResource(this, Resource.Array.day_name, Resource.Layout.custom_spinner_item);
+            Spinneradapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spinner.Adapter = Spinneradapter;
+           
             // Buttons
             Button add = view.FindViewById<Button>(Resource.Id.btnConfirm);
             Button cancel = view.FindViewById<Button>(Resource.Id.btnCancel);
@@ -85,9 +80,9 @@ namespace Project_1
             add.Click += delegate
             {
                 // Get text from the form and add to the ClassList
-                mitems.Add(new ClassList() { UnitCode = unitcode.Text, Type = type.Text, Room = room.Text, Time = time.Text, Day = day.Text });             
+                mitems.Add(new ClassList() { UnitCode = unitcode.Text, Type = type.Text, Room = room.Text, Time = time.Text, Day = spinner.SelectedItem.ToString() });             
                 ORM.DBRepository dbr = new ORM.DBRepository();
-                string result = dbr.InsertRecord(unitcode.Text, type.Text, room.Text, time.Text, day.Text);
+                string result = dbr.InsertRecord(unitcode.Text, type.Text, room.Text, time.Text, spinner.SelectedItem.ToString());
                 builder.Dismiss();
 
                 // Re-initialise the ListView, so that it refreshes
@@ -96,7 +91,7 @@ namespace Project_1
                 adapter = new MyListViewAdapter(this, mitems);
                 mListView.Adapter = adapter;
                 // Tell users that item is successfully added.
-                Toast.MakeText(this, "Successfully Added.", ToastLength.Short).Show();
+                Toast.MakeText(this, "Successfully Added." + spinner.SelectedItem.ToString(), ToastLength.Short).Show();
             };
             builder.Show();
         }
@@ -105,19 +100,6 @@ namespace Project_1
         void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var listView = sender as ListView;
-            // Get Item Position
-            /*
-            var t = mitems[e.Position];
-            ORM.DBRepository dbr = new ORM.DBRepository();
-            var delete = dbr.RemoveUnit(t.UnitId);
-            // Re-initialise the ListView, so that it refreshes
-            // Ineffecient but I couldn't figure out a better way
-            mitems = new List<ClassList>(dbr.AllClassList());
-            adapter = new MyListViewAdapter(this, mitems);
-            mListView.Adapter = adapter;
-            Toast.MakeText(this, delete, ToastLength.Short).Show();
-            */
-            // Past down the position value
             EditClassDialog(e.Position);
         }
 
@@ -140,13 +122,20 @@ namespace Project_1
             EditText UnitCode = view.FindViewById<EditText>(Resource.Id.txtUnitCode);
             EditText Room = view.FindViewById<EditText>(Resource.Id.txtRoom);
             EditText Time = view.FindViewById<EditText>(Resource.Id.txtTimes);
-            EditText Day = view.FindViewById<EditText>(Resource.Id.txtDay);
             EditText Type = view.FindViewById<EditText>(Resource.Id.txtType);
-            // Change input value to exist one
+            Spinner spinner = view.FindViewById<Spinner>(Resource.Id.spinnerDay);
+
+            
+            // Apply the string array to Spinner
+            var SpinnerAdapter = ArrayAdapter.CreateFromResource(this, Resource.Array.day_name, Resource.Layout.custom_spinner_item);
+            SpinnerAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spinner.Adapter = SpinnerAdapter;
+
+            // Change input value to exist on
             UnitCode.Text = item.UnitCode;
             Room.Text = item.Room;
             Time.Text = item.Time;
-            Day.Text = item.Day;
+            spinner.SetSelection(SpinnerAdapter.GetPosition(item.Day));
             Type.Text = item.Type;
 
             // Buttons
@@ -156,7 +145,8 @@ namespace Project_1
             Delete.Text = "Delete";
             // Edit Click
             Edit.Click += delegate {
-                var update = dbr.Updateitem(item.UnitId, UnitCode.Text, Type.Text, Room.Text, Time.Text, Day.Text);
+                
+                var update = dbr.Updateitem(item.UnitId, UnitCode.Text, Type.Text, Room.Text, Time.Text, spinner.SelectedItem.ToString());
                 builder.Dismiss();
                 // Re-initialise the ListView, so that it refreshes
                 // Ineffecient but I couldn't figure out a better way

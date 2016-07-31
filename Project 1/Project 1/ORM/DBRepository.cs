@@ -128,6 +128,26 @@ namespace Project_1.ORM
             }
         }
 
+        // Get class by day
+        public List<ClassList> TodayClassList()
+        {
+            string dbPath = Path.Combine(Environment.GetFolderPath
+                   (Environment.SpecialFolder.Personal), "classtimetable.db3");
+
+            var db = new SQLiteConnection(dbPath);
+            List<ClassList> mitems = new List<ClassList>();
+            var table = db.Table<TableClass>();
+            string today = DateTime.Now.DayOfWeek.ToString();
+            foreach (var item in table)
+            {
+                if (item.Day.ToLower() == today.ToLower())
+                {
+                    mitems.Add(new ClassList() { UnitId = item.Id, UnitCode = item.UnitCode, Type = item.Type, Room = item.Room, Time = item.Time, Day = item.Day });
+                }
+            }
+            return mitems;
+
+        }
         // Update the record using ORM
         public string Updateitem(int id, string unitCode, string type, string room, string time, string day )
         {

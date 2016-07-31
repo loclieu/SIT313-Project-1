@@ -12,11 +12,12 @@ using Android.Widget;
 
 namespace Project_1
 {
+
     class MyListViewAdapter : BaseAdapter<ClassList>
     {
         private List<ClassList> mItems;
         private Context mContext;
-        
+       
         public MyListViewAdapter(Context context, List<ClassList> items)
         {
             mItems = items;
@@ -61,7 +62,7 @@ namespace Project_1
 
             TextView txtDay = row.FindViewById<TextView>(Resource.Id.txtDay);
             txtDay.Text = mItems[position].Day;
-
+            
             return row;
         }
 

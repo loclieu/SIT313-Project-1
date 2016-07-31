@@ -141,25 +141,20 @@
         android:textSize="14dp"
         android:paddingLeft="5dp"
         android:paddingTop="2dp" />
-    <EditText
-        android:id="@+id/txtDay"
+    <Spinner
         android:layout_below="@+id/lblDay"
-        android:inputType="text"
-        android:layout_height="28dp"
+        android:layout_height="25dp"
+        android:background="@layout/custom_edittext"
         android:layout_width="match_parent"
         android:layout_marginLeft="20dp"
-        android:background="@layout/custom_edittext"
-        android:hint="Class Day"
-        android:textColorHint="@android:color/darker_gray"
-        android:textColor="@android:color/black"
         android:paddingLeft="5dp"
         android:paddingTop="1dp"
-        android:textSize="14dp"
         android:paddingBottom="1dp"
-        android:layout_marginRight="20dp" />
+        android:layout_marginRight="20dp"
+        android:id="@+id/spinnerDay" />
     <TextView
         android:id="@+id/lblType"
-        android:layout_below="@+id/txtDay"
+        android:layout_below="@+id/spinnerDay"
         android:layout_height="25dp"
         android:layout_width="170dp"
         android:layout_marginLeft="20dp"
