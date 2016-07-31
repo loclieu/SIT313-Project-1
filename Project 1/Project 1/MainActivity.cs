@@ -46,22 +46,6 @@ namespace Project_1
             {
                 StartActivity(typeof(UserDetailsActivity));
             };
-
-
-            DateTime now = DateTime.Now.ToLocalTime();
-            int currentDay = 16;    // End of week 1 is day 15
-            int currentWeek = 1;
-        
-            if (now.Day > currentDay && now.Month <= 10) // if now is > than 16 then add 1 to current week, and 7 to currentDate to make a new week
-            {
-                currentDay+= 7; // new week checker
-                currentWeek ++;
-                txtWeek.Text = "Week: " + currentWeek.ToString();
-            }
-            else
-            {
-                txtWeek.Text = "Week: Exam Period";
-            }
      
         }
 

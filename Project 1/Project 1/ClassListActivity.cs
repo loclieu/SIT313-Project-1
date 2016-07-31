@@ -16,6 +16,7 @@ namespace Project_1
     [Activity(Label = "ClassListActivity")]
     public class ClassListActivity : Activity
     {
+        // Intialise variables to be used in this class
         private List<ClassList> mitems;
         private ListView mListView;
         MyListViewAdapter adapter;
@@ -28,19 +29,11 @@ namespace Project_1
 
             mListView = FindViewById<ListView>(Resource.Id.lvClassList);
 
+            // Initialise the DB
             ORM.DBRepository dbr1 = new ORM.DBRepository();
-            // var result1 = dbr1.CreateTable();
-            // Toast.MakeText(this, result1, ToastLength.Short).Show();
-            //  dbr1.GetAllRecords();
           
-           
-        
+            // Create the ListView and Link them with the DB Table
             mitems = new List<ClassList>(dbr1.AllClassList());
-            /*
-            mitems.Add(new ClassList() { UnitCode = "SIT313", Type ="Practical", Room = "T1.001", Time = "10:00", Day="Tuesday" });
-            mitems.Add(new ClassList() { UnitCode = "SIT255", Type = "Lecture", Room = "B4.012", Time = "14:00", Day = "Wednesday" });
-            mitems.Add(new ClassList() { UnitCode = "SIT313", Type = "Practical", Room = "T1.001", Time = "12:00", Day = "Friday" });
-             */
             adapter = new MyListViewAdapter(this, mitems);
             mListView.Adapter = adapter;
             mListView.ItemClick += OnListItemClick;
@@ -48,12 +41,11 @@ namespace Project_1
             Button btnAddClass = FindViewById<Button>(Resource.Id.btnAddClass);
             btnAddClass.Click += delegate
             {
-                //  ORM.DBRepository dbr = new ORM.DBRepository();
-                // string result = dbr.InsertRecord(mitems[0].UnitCode, mitems[0].Room, mitems[0].Time, mitems[0].Day, mitems[0].Type);
-                //  Toast.MakeText(this, result, ToastLength.Short).Show();
-                fnShowCustomAlertDialog();
+                // Show dialog
+                AddNewClassDialog();
             };
 
+            /*
             Button btnEditClass = FindViewById<Button>(Resource.Id.btnEditClass);
             btnEditClass.Click += delegate
             {
@@ -61,15 +53,12 @@ namespace Project_1
                    var result = dbr.GetAllRecords();
             Toast.MakeText(this, result, ToastLength.Short).Show();
             };
-
+            */
             
         }
 
-        void fnShowCustomAlertDialog()
-        {
-           
-            
-            
+        void AddNewClassDialog()
+        {     
             //Inflate layout
             View view = LayoutInflater.Inflate(Resource.Layout.custom_dialog, null);
             AlertDialog builder = new AlertDialog.Builder(this).Create();
@@ -82,33 +71,113 @@ namespace Project_1
             EditText time = view.FindViewById<EditText>(Resource.Id.txtTimes);
             EditText day = view.FindViewById<EditText>(Resource.Id.txtDay);
             EditText type = view.FindViewById<EditText>(Resource.Id.txtType);
-            
-            // Button
+            // Last Item in list
+         
+            // Buttons
             Button add = view.FindViewById<Button>(Resource.Id.btnConfirm);
             Button cancel = view.FindViewById<Button>(Resource.Id.btnCancel);
+            // Cancel Click
             cancel.Click += delegate {
                 builder.Dismiss();
                 Toast.MakeText(this, "Alert dialog dismissed!", ToastLength.Short).Show();
             };
+            // Add Click
             add.Click += delegate
             {
-                mitems.Add(new ClassList() { UnitCode = unitcode.Text, Type = type.Text, Room = room.Text, Time = time.Text, Day = day.Text });
-                mListView.Adapter = adapter;
+                // Get text from the form and add to the ClassList
+                mitems.Add(new ClassList() { UnitCode = unitcode.Text, Type = type.Text, Room = room.Text, Time = time.Text, Day = day.Text });             
                 ORM.DBRepository dbr = new ORM.DBRepository();
                 string result = dbr.InsertRecord(unitcode.Text, type.Text, room.Text, time.Text, day.Text);
-                Toast.MakeText(this, result, ToastLength.Short).Show();
                 builder.Dismiss();
+
+                // Re-initialise the ListView, so that it refreshes
+                // Ineffecient but I couldn't figure out a better way
+                mitems = new List<ClassList>(dbr.AllClassList());
+                adapter = new MyListViewAdapter(this, mitems);
+                mListView.Adapter = adapter;
+                // Tell users that item is successfully added.
                 Toast.MakeText(this, "Successfully Added.", ToastLength.Short).Show();
             };
             builder.Show();
         }
 
+        // When Selecting a single item in ListView
         void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var listView = sender as ListView;
+            // Get Item Position
+            /*
             var t = mitems[e.Position];
+            ORM.DBRepository dbr = new ORM.DBRepository();
+            var delete = dbr.RemoveUnit(t.UnitId);
+            // Re-initialise the ListView, so that it refreshes
+            // Ineffecient but I couldn't figure out a better way
+            mitems = new List<ClassList>(dbr.AllClassList());
+            adapter = new MyListViewAdapter(this, mitems);
+            mListView.Adapter = adapter;
+            Toast.MakeText(this, delete, ToastLength.Short).Show();
+            */
+            // Past down the position value
+            EditClassDialog(e.Position);
+        }
 
-            Toast.MakeText(this, t.UnitCode, Android.Widget.ToastLength.Short).Show();
+
+
+        // Edit Class Dialog
+        void EditClassDialog(int position)
+        {
+            //Inflate layout
+            View view = LayoutInflater.Inflate(Resource.Layout.custom_dialog, null);
+            AlertDialog builder = new AlertDialog.Builder(this).Create();
+            builder.SetView(view);
+            builder.SetCanceledOnTouchOutside(true);
+
+            // Get Selected Item ID
+            var item = mitems[position];
+            ORM.DBRepository dbr = new ORM.DBRepository();
+           
+            // Input variable
+            EditText UnitCode = view.FindViewById<EditText>(Resource.Id.txtUnitCode);
+            EditText Room = view.FindViewById<EditText>(Resource.Id.txtRoom);
+            EditText Time = view.FindViewById<EditText>(Resource.Id.txtTimes);
+            EditText Day = view.FindViewById<EditText>(Resource.Id.txtDay);
+            EditText Type = view.FindViewById<EditText>(Resource.Id.txtType);
+            // Change input value to exist one
+            UnitCode.Text = item.UnitCode;
+            Room.Text = item.Room;
+            Time.Text = item.Time;
+            Day.Text = item.Day;
+            Type.Text = item.Type;
+
+            // Buttons
+            Button Edit = view.FindViewById<Button>(Resource.Id.btnConfirm);
+            Button Delete = view.FindViewById<Button>(Resource.Id.btnCancel);
+            Edit.Text = "Edit";
+            Delete.Text = "Delete";
+            // Edit Click
+            Edit.Click += delegate {
+                var update = dbr.Updateitem(item.UnitId, UnitCode.Text, Type.Text, Room.Text, Time.Text, Day.Text);
+                builder.Dismiss();
+                // Re-initialise the ListView, so that it refreshes
+                // Ineffecient but I couldn't figure out a better way
+                mitems = new List<ClassList>(dbr.AllClassList());
+                adapter = new MyListViewAdapter(this, mitems);
+                mListView.Adapter = adapter;
+                Toast.MakeText(this, update, ToastLength.Short).Show();
+            };
+            // Delete Click
+            Delete.Click += delegate
+            {
+                var remove = dbr.RemoveUnit(item.UnitId);
+                builder.Dismiss();
+                // Re-initialise the ListView, so that it refreshes
+                // Ineffecient but I couldn't figure out a better way
+                mitems = new List<ClassList>(dbr.AllClassList());
+                adapter = new MyListViewAdapter(this, mitems);
+                mListView.Adapter = adapter;
+                Toast.MakeText(this, remove, ToastLength.Short).Show();
+            };
+            builder.Show();
         }
     }
 }

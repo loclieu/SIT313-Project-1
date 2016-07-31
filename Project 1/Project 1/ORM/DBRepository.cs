@@ -55,6 +55,7 @@ namespace Project_1.ORM
 
                 var db = new SQLiteConnection(dbPath);
                 TableClass item = new TableClass();
+
                 item.UnitCode = unitCode;
                 item.Room = room;
                 item.Time = time;
@@ -80,7 +81,7 @@ namespace Project_1.ORM
 
             foreach (var item in table)
             {
-                mitems.Add(new ClassList() { UnitCode = item.UnitCode, Type = item.Type, Room = item.Room, Time = item.Time, Day = item.Day});
+                mitems.Add(new ClassList() { UnitId = item.Id, UnitCode = item.UnitCode, Type = item.Type, Room = item.Room, Time = item.Time, Day = item.Day});
             }
 
             return mitems;
@@ -119,7 +120,7 @@ namespace Project_1.ORM
                 var db = new SQLiteConnection(dbPath);
 
                 var item = db.Get<TableClass>(id);
-                return item.UnitCode + " " + item.Room;
+                return item.UnitCode + " " + item.Room + " " + item.Id;
             }
             catch (Exception ex)
             {
@@ -128,7 +129,7 @@ namespace Project_1.ORM
         }
 
         // Update the record using ORM
-        public string updaterecord(int id, string task)
+        public string Updateitem(int id, string unitCode, string type, string room, string time, string day )
         {
             string dbPath = Path.Combine(Environment.GetFolderPath
            (Environment.SpecialFolder.Personal), "classtimetable.db3");
@@ -136,11 +137,36 @@ namespace Project_1.ORM
             var db = new SQLiteConnection(dbPath);
 
             var item = db.Get<TableClass>(id);
-            item.UnitCode = task;
+            item.UnitCode = unitCode;
+            item.Type = type;
+            item.Room = room;
+            item.Time = time;
+            item.Day = day;
             db.Update(item);
             return "Record Updated...";
 
         }
 
+        // Remove record from table
+        public string RemoveUnit(int id)
+        {
+            string dbPath = Path.Combine(Environment.GetFolderPath
+          (Environment.SpecialFolder.Personal), "classtimetable.db3");
+            var db = new SQLiteConnection(dbPath);
+
+            var item = db.Get<TableClass>(id);
+            db.Delete(item);
+            return "Record Deleted..";
+        }
+
+        // Show selected Item
+        public string displaySelected(int id)
+        {
+            string dbPath = Path.Combine(Environment.GetFolderPath
+                    (Environment.SpecialFolder.Personal), "classtimetable.db3");
+            var db = new SQLiteConnection(dbPath);
+            var item = db.Get<TableClass>(id);
+            return item.UnitCode + " " + item.Type + " " + item.Room + " " + item.Time + " " + item.Day;
+        }
     }
 }

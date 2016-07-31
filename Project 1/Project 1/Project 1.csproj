@@ -68,7 +68,9 @@
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\ClassList.axml" />
+    <AndroidResource Include="Resources\layout\ClassList.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\layout\listview_row.axml" />
     <AndroidResource Include="Resources\layout\UserDetails.axml">
       <SubType>Designer</SubType>
@@ -77,6 +79,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\custom_edittext.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\custom_dialog_edit_item.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

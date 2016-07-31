@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:background="#bfebff">
+    <TextView
+        android:id="@+id/titleAddClass"
+        android:layout_height="32dp"
+        android:layout_width="match_parent"
+        android:text="Edit Class"
+        android:textSize="20dp"
+        android:textColor="#ffffffff"
+        android:paddingTop="4dp"
+        android:background="#80d8ff"
+        android:gravity="center" />
+    <TextView
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="384.0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleAddClass"
+        android:textColor="#000000"
+        android:textSize="14dp"
+        android:id="@+id/textView1"
+        android:layout_marginTop="12.0dp"
+        android:gravity="center"/>
+    <LinearLayout
+        android:id="@+id/linearLayoutBtns"
+        android:layout_below="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp">
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="125dp"
+            android:layout_height="35dp"
+            android:textSize="14dp"
+            android:text="Delete"
+            android:typeface="sans"
+            android:background="#5997b2"
+            android:textColor="#ffffffff"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10.0dp" />
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="125dp"
+            android:layout_height="35dp"
+            android:textSize="14dp"
+            android:text="Edit"
+            android:typeface="sans"
+            android:background="#5997b2"
+            android:layout_marginLeft="5dp"
+            android:textColor="#ffffffff"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="10.0dp" />
+    </LinearLayout>
+</RelativeLayout>

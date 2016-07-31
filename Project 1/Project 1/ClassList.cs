@@ -14,6 +14,7 @@ namespace Project_1
 {
     class ClassList
     {
+        public int UnitId { get; set; }
         public string UnitCode { get; set; }
         public string Room { get; set; }
         public string Time { get; set; }
