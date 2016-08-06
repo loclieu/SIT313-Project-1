@@ -117,7 +117,7 @@
             android:layout_width="125dp"
             android:layout_height="35dp"
             android:textSize="14dp"
-            android:text="Cancel"
+            android:text="Back"
             android:typeface="sans"
             android:background="#406c7f"
             android:layout_marginLeft="5dp"

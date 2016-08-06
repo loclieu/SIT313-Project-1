@@ -45,10 +45,6 @@ namespace Project_1
                 StartActivity(typeof(UserDetailsActivity));
             };
 
-
-
-
-
             // Create the ListView and Link them with the DB Table
             mListView = FindViewById<ListView>(Resource.Id.lvTodayClass);
             mitems = new List<ClassList>(dbr1.TodayClassList());
@@ -59,6 +55,17 @@ namespace Project_1
             adapter = new MyListViewAdapter(this, mitems);
             mListView.Adapter = adapter;
             mListView.ItemClick += OnListItemClick;
+
+            //Retrieve User Details
+            var localUserDetails = Application.Context.GetSharedPreferences("MyDetails", FileCreationMode.Private);
+            string name = localUserDetails.GetString("Name", null);
+            string email = localUserDetails.GetString("Email", null);
+            string study = localUserDetails.GetString("Study", null);
+            UserInfo myDetail = new UserInfo(name, email, study);
+
+            TextView title = FindViewById<TextView>(Resource.Id.lblTitle);
+            title.Text = myDetail.getFirstName() + "'s Timetable";
+
         }
 
         private void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -67,6 +74,7 @@ namespace Project_1
             ORM.DBRepository dbr = new ORM.DBRepository();
             mListView = FindViewById<ListView>(Resource.Id.lvTodayClass);
             mitems = new List<ClassList>(dbr.TodayClassList());
+            // If no class found today, then it will alert the user so.
             if (mitems.Count == 0)
             {
                 mitems.Add(new ClassList() { UnitCode = "No Class Today" });

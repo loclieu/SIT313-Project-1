@@ -124,12 +124,16 @@ namespace Project_1
             EditText Time = view.FindViewById<EditText>(Resource.Id.txtTimes);
             EditText Type = view.FindViewById<EditText>(Resource.Id.txtType);
             Spinner spinner = view.FindViewById<Spinner>(Resource.Id.spinnerDay);
-
+            TextView title = view.FindViewById<TextView>(Resource.Id.titleAddClass);
             
             // Apply the string array to Spinner
             var SpinnerAdapter = ArrayAdapter.CreateFromResource(this, Resource.Array.day_name, Resource.Layout.custom_spinner_item);
             SpinnerAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinner.Adapter = SpinnerAdapter;
+
+            // Change title of dialog, since I reuse the Add Class Dialog, so I need to change 
+            // it to edit Class
+            title.Text = "Edit Class";
 
             // Change input value to exist on
             UnitCode.Text = item.UnitCode;
@@ -141,6 +145,8 @@ namespace Project_1
             // Buttons
             Button Edit = view.FindViewById<Button>(Resource.Id.btnConfirm);
             Button Delete = view.FindViewById<Button>(Resource.Id.btnCancel);
+
+            // Change text of button to match with current dialog.
             Edit.Text = "Edit";
             Delete.Text = "Delete";
             // Edit Click

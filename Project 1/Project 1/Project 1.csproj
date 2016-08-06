@@ -57,8 +57,10 @@
     <Compile Include="ClassListActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MyListViewAdapter.cs" />
+    <Compile Include="UserInfo.cs" />
     <Compile Include="ORM\DBRepository.cs" />
     <Compile Include="ORM\TableClass.cs" />
+    <Compile Include="ORM\DBUserDetails.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ORM\SQLite.cs" />
@@ -114,6 +116,9 @@
     <AndroidResource Include="Resources\drawable\ViewCellBackground.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\calendar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
