@@ -44,7 +44,15 @@ namespace Project_1
                 // Show dialog
                 AddNewClassDialog();
             };
-           
+
+
+            Button btnBack = FindViewById<Button>(Resource.Id.btnEditClass);
+            btnBack.Click += delegate
+            {
+                // Finish Activity
+               Finish();
+            };
+
 
         }
 

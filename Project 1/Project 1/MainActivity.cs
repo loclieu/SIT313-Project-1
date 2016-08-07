@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace Project_1
 {
-    [Activity(Label = "Project_1", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Project_1", Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
 
