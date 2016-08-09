@@ -13,7 +13,7 @@ using System.IO;
 
 namespace Project_1
 {
-    [Activity(Label = "ClassListActivity")]
+    [Activity(Label = "Class List", Icon = "@drawable/calendar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class ClassListActivity : Activity
     {
         // Intialise variables to be used in this class

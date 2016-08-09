@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace Project_1
 {
-    [Activity(Label = "Project_1", Icon = "@drawable/icon")]
+    [Activity(Label = "Main", Icon = "@drawable/calendar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class MainActivity : Activity
     {
 
@@ -26,6 +26,8 @@ namespace Project_1
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
+            this.Title = "Home Screen";
+            
             // Create Database if it doesnt exist
             ORM.DBRepository dbr1 = new ORM.DBRepository();
             var result1 = dbr1.CreateTable();

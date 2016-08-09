@@ -13,7 +13,13 @@ APPLICATION USAGE:
 	- Features of the app include: getting user input, navigation through different
 	  activity and saving the user input for next usage.
 	  
-	- 
+
+SOFTWARE REQUIREMENT:
+---------------------
+	- Android Phone
+	- Mininum Android 4.1 
+	- Target for Android 6.0 
+	- Hardware used for testing: Samsung Galaxy Note 3
 	
 MEDIA COPYRIGHT:
 -----------------

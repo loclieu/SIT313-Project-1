@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Project_1
 {
-    [Activity(Label = "UserDetails")]
+    [Activity(Label = "UserDetails", Icon = "@drawable/calendar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class UserDetailsActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -23,8 +23,7 @@ namespace Project_1
             SetContentView(Resource.Layout.UserDetails);
 
             // Change Title
-            this.Title = "User Details";
-
+            Title = "User Details";
             // Retrieve share preference if exist
             //Retrieve User Details
             EditText nameBox = FindViewById<EditText>(Resource.Id.txtName);
