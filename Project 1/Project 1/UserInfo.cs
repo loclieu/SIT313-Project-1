@@ -27,6 +27,7 @@ namespace Project_1
         public string email { get; set; }
         public string courseCode { get; set; }
 
+        // Get First Name only to use on Main.
         public string getFirstName()
         {
             string firstname = "";

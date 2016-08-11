@@ -25,14 +25,14 @@ namespace Project_1
 
             Task startupWork = new Task(() =>
             {
-                Log.Debug(TAG, "Performing some startup work that takes a bit of time.");
-                Task.Delay(5000); // Simulate a bit of startup work.
-                Log.Debug(TAG, "Working in the background - important stuff.");
+                Log.Debug(TAG, "Starting up");
+                Task.Delay(5000);
+                Log.Debug(TAG, "Loading Up data.");
             });
 
             startupWork.ContinueWith(t =>
             {
-                Log.Debug(TAG, "Work is finished - start Activity1.");
+                Log.Debug(TAG, "Completed, Start Main Activity");
                 StartActivity(new Intent(Application.Context, typeof(MainActivity)));
             }, TaskScheduler.FromCurrentSynchronizationContext());
 

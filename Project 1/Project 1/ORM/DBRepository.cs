@@ -88,6 +88,7 @@ namespace Project_1.ORM
             return mitems;
 
         }
+
         // Retrieve All Records
         public string GetAllRecords()
         {
@@ -110,25 +111,6 @@ namespace Project_1.ORM
             return output;
         }
 
-        // Retrieve specific record using ORM
-        public string GetTaskById(int id)
-        {
-            try
-            {
-                string dbPath = Path.Combine(Environment.GetFolderPath
-              (Environment.SpecialFolder.Personal), "classtimetable.db3");
-
-                var db = new SQLiteConnection(dbPath);
-
-                var item = db.Get<TableClass>(id);
-                return item.UnitCode + " " + item.Room + " " + item.Id;
-            }
-            catch (Exception ex)
-            {
-                return "Error: " + ex.Message;
-            }
-        }
-
         // Get class by day
         public List<ClassList> TodayClassList()
         {
@@ -149,6 +131,7 @@ namespace Project_1.ORM
             return mitems;
 
         }
+
         // Update the record using ORM
         public string Updateitem(int id, string unitCode, string type, string room, string time, string day )
         {
